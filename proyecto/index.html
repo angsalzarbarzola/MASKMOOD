@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodMasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-animated-gradient"></div>
+
+    <div class="page-content">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo.png" alt="MoodMasks Logo">
+                    </a>
+                </div>
+
+                <button class="hamburger-menu" aria-label="Abrir menú de navegación">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <nav>
+                    <ul>
+                        <li><a href="#productos">Mascarillas</a></li>
+                        <li><a href="#beneficios">Mood & Piel</a></li>
+                        <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+                        <li><a href="#novedades">Novedades</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button id="login-google" class="btn-google">
+                    <img src="img/google-logo.png" alt="Google Logo"> iniciar sesión
+                </button>
+                <div class="cart-icon">
+                    🛒 <span id="cart-item-count">(0)</span>
+                </div>
+                <button id="cancel-purchase-btn" class="btn-cancel hidden" aria-label="Cancelar Compra">X</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <h1>MoodMask: Tu piel refleja tu emoción</h1>
+                    <p>Mascarillas faciales que se adaptan a cómo te sientes. Cuida tu piel. Abraza tu emoción.</p>
+                    <a href="#productos" class="btn">Encuentra tu MoodMask Ideal</a>
+                </div>
+            </section>
+
+            <section id="productos" class="featured-products">
+                <div class="container">
+                    <h2>Elige tu Mascarilla según tu Emoción</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="img/trsite.jpeg" alt="MoodMask Triste">
+                            <h3>😢 Mood Triste</h3>
+                            <p>Lavanda + camomila. Relajante, antiinflamatoria, calma la piel y reduce rojeces.</p>
+                            <span class="price">S/15.00</span>
+                            <button class="add-to-cart-btn">Añadir al Carrito</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="img/estresada.jpeg" alt="MoodMask Estresada">
+                            <h3>😫 Mood Estresada</h3>
+                            <p>Menta + vitamina C. Refresca, revitaliza e ilumina la piel.</p>
+                            <span class="price">S/15.00</span>
+                            <button class="add-to-cart-btn">Añadir al Carrito</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="img/feliz.jpeg" alt="MoodMask Feliz">
+                            <h3>😄 Mood Feliz</h3>
+                            <p>Glitter + frutas (fresa, mango, kiwi). Vitaminas, antioxidantes y renovación celular.</p>
+                            <span class="price">S/15.00</span>
+                            <button class="add-to-cart-btn">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="beneficios" class="why-us">
+                <div class="container">
+                    <h2>¿Por qué elegir MoodMasks?</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <img src="img/Top 10 Face Mask Skincare Ideas for Glowing Skin.jpg" alt="Autoaceptación">
+                            <h3>Autoaceptación y Autocuidado</h3>
+                            <p>Promueve el cuidado propio sin juicio, conectando piel y emociones.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="img/WhatsApp Image 2025-05-25 at 10.24.56 PM.jpeg" alt="Personalización Emocional">
+                            <h3>Personalización Emocional</h3>
+                            <p>Elige tu mascarilla según cómo te sientes. ¡Tu emoción del día elige tu mascarilla ideal!
+                            </p>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="img/cajita.jpeg" alt="Diseño Atractivo">
+                            <h3>Diseño Atractivo y Coleccionable</h3>
+                            <p>Colores vibrantes, ruleta del mood y una identidad joven y amigable.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sostenibilidad" class="sustainability-section">
+                <div class="container">
+                    <h2>Nuestro Compromiso Ecoamigable</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <img src="img/natural.jpg" alt="Ingredientes Naturales">
+                            <h3>Ingredientes Naturales</h3>
+                            <p>Formuladas con ingredientes naturales, sin parabenos ni sulfatos.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="img/caja.jpeg" alt="Empaques Reciclados">
+                            <h3>Empaques Sostenibles</h3>
+                            <p>Utilizamos cartón reciclado, tintas vegetales y materiales biodegradables.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="img/goo.jpg" alt="Bajo Impacto">
+                            <h3>Producción de Bajo Impacto</h3>
+                            <p>Procesos respetuosos con el medio ambiente y bajo impacto ambiental.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="novedades" class="newsletter-signup">
+                <div class="container">
+                    <h2>Únete a la Comunidad MoodMasks</h2>
+                    <p>Descubre nuevas emociones, ofertas exclusivas y consejos para tu piel.</p>
+                    <form>
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn">Suscribirme</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contacto">
+            <div class="container">
+                <p>&copy; 2025 MoodMasks. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </div>
+                <p>¡Cuida tu piel. Abraza tu emoción!</p>
+            </div>
+        </footer>
+
+        <div id="custom-alert-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div id="alert-icon" class="modal-icon"></div>
+                <h3 id="alert-title"></h3>
+                <p id="alert-message"></p>
+                <button id="alert-ok-button" class="btn">Ok</button>
+            </div>
+        </div>
+    </div>
+    <script src="firebase-auth.js" type="module"></script>
+</body>
+
+</html>

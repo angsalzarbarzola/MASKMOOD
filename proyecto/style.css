@@ -1,0 +1,1025 @@
+/* Variables CSS para colores y fuentes */
+:root {
+    /* Colores basados en tu imagen de MoodMasks */
+    --mood-yellow: #FDD874;
+    /* Amarillo pastel */
+    --mood-blue: #7DD2D7;
+    /* Azul turquesa pastel */
+    --mood-pink: #F8C3CA;
+    /* Rosa pastel */
+
+    /* Colores para texto y fondo basados en la paleta */
+    --primary-color: #333;
+    /* Texto oscuro general (casi negro) */
+    --secondary-text: #666;
+    /* Texto gris medio */
+    --light-bg: #FDFDFD;
+    /* Fondo muy claro, casi blanco */
+    --lighter-bg: #F4F8F8;
+    /* Fondo ligeramente más oscuro para secciones */
+    --white: #FFFFFF;
+    /* Blanco puro */
+    --shadow-light: rgba(0, 0, 0, 0.212);
+    /* Sombra suave */
+    --shadow-medium: rgba(0, 0, 0, 0.37);
+    /* Sombra un poco más fuerte */
+
+    /* Fuentes */
+    --font-heading: 'Playfair Display', serif;
+    /* Para títulos */
+    --font-body: 'Montserrat', sans-serif;
+    /* Para texto general */
+}
+
+/* Reseteo básico y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- ESTILOS DEL BODY AJUSTADOS PARA EL FONDO ANIMADO --- */
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--primary-color);
+    /* Color de texto por defecto para la mayoría de elementos */
+    -webkit-font-smoothing: antialiased;
+    /* Mejorar la renderización de fuentes */
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Evita el scroll horizontal si el contenido es más ancho */
+    min-height: 100vh;
+}
+
+/* --- NUEVO ESTILO PARA EL FONDO ANIMADO --- */
+.background-animated-gradient {
+    width: 100vw;
+    /* Ancho de la ventana */
+    height: 100vh;
+    /* Alto de la ventana */
+    /* Gradiente gradual con distribución de colores (40% rosa, 45% azul, 15% amarillo) */
+    background: linear-gradient(45deg,
+        var(--mood-pink) 20%,
+        /* Rosa pastel comienza */
+        var(--mood-blue) 40%,
+        /* Transición a azul turquesa en el 40% */
+        var(--mood-yellow) 85%,
+        /* Transición a amarillo pastel en el 85% */
+        var(--mood-pink) 100%
+        /* Amarillo pastel se extiende hasta el final */
+    );
+    background-size: 400% 400%;
+    animation: moveGradient 10s ease infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* --- KEYFRAMES PARA LA ANIMACIÓN DEL FONDO --- */
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- ESTILOS DEL CONTENIDO AJUSTADOS --- */
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: var(--white);
+    /* Texto blanco para el h1 en el hero (sobre el gradiente animado) */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    /* Sombra para legibilidad */
+}
+
+h2 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+    /* Color de h2 se define por sección para mejor contraste */
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--mood-yellow);
+    /* Línea decorativa en amarillo */
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8em;
+    /* Color de h3 se define por sección para mejor contraste */
+}
+
+
+.btn {
+    display: inline-block;
+    background: var(--mood-pink);
+    color: var(--white);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.btn:hover {
+    background: #e2002660;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-medium);
+}
+
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.849);
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* Evita que los elementos se envuelvan en desktop */
+    gap: 15px;
+}
+
+/* Logo (IMAGEN) */
+.logo img {
+    max-height: 90px;
+    /* Ajusta esta altura máxima para tu logo en desktop */
+    width: auto;
+    /* Mantiene la proporción de la imagen */
+    display: block;
+    /* Asegura que la imagen se comporte como un bloque */
+    align-items: middle;
+    /* Ayuda a alinear la imagen si hay texto alrededor */
+}
+
+/* Hamburguer Menu */
+.hamburger-menu {
+    display: none;
+    /* Oculto por defecto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 501;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Animación de la hamburguesa a la X */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Navigation (Menu) */
+nav {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--mood-yellow);
+    transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--mood-yellow);
+}
+
+/* Contenedor de acciones del header (Google, Carrito, X) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre los elementos de acción */
+}
+
+/* Botón de inicio de sesión con Google */
+.btn-google {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    flex-shrink: 0;
+}
+
+.btn-google:hover {
+    background-color: var(--lighter-bg);
+    border-color: var(--mood-blue);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+.btn-google img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilo para el botón cuando el usuario está logueado (cerrar sesión) */
+.btn-google.logout {
+    background-color: var(--mood-pink);
+    color: var(--white);
+    border-color: var(--mood-pink);
+}
+
+.btn-google.logout:hover {
+    background-color: #E0AAB2;
+    border-color: #E0AAB2;
+}
+
+/* Nuevo estilo para ocultar elementos */
+.hidden {
+    display: none !important;
+}
+
+/* Estilos para el botón de Cancelar Compra (ahora una 'X') */
+.btn-cancel {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 8px;
+    /* Margen a la derecha para separarlo del carrito */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cancel:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+/* Estilos para el icono del carrito */
+.cart-icon {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+/* Hero Section */
+.hero {
+    background: transparent;
+    /* Permite que el gradiente animado se vea */
+    text-align: center;
+    padding: 120px 0;
+    color: var(--white);
+    /* Texto blanco para el hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.hero h1 {
+    font-size: 4.5em;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: var(--white);
+    /* Texto blanco para el hero */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Featured Products (Mascarillas Destacadas) */
+.featured-products {
+    padding: 80px 0;
+    background-color: #76cece8e;
+    /* CAMBIO: Fondo rosa pastel (40%) */
+    position: relative;
+    z-index: 1;
+}
+
+.featured-products h2 {
+    color: var(--white);
+    /* CAMBIO: Título blanco para contrastar con el fondo rosa */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--white);
+    /* Fondo blanco para las tarjetas de producto */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--shadow-light);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--shadow-medium);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    /* Títulos de productos en azul turquesa */
+}
+
+.product-card p {
+    font-size: 1em;
+    color: var(--secondary-text);
+    /* Texto gris para el párrafo */
+    margin-bottom: 18px;
+}
+
+.product-card .price {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    /* Precios en rosa pastel */
+    display: block;
+    margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+    background: var(--mood-blue);
+    color: var(--white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+.add-to-cart-btn:hover {
+    background: #6DBDD6;
+    transform: translateY(-2px);
+}
+
+/* Why Us Section (Beneficios) */
+.why-us {
+    padding: 80px 0;
+    background-color: #79e0ee79;
+    /* CAMBIO: Fondo azul turquesa (45%) */
+    position: relative;
+    z-index: 1;
+}
+
+.why-us h2 {
+    color: var(--white);
+    /* CAMBIO: Título blanco para contrastar con el fondo azul */
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.benefit-item {
+    padding: 30px;
+    border-radius: 12px;
+    background: var(--lighter-bg);
+    /* Fondo ligeramente más oscuro para los ítems */
+    box-shadow: 0 4px 10px var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.benefit-item:hover {
+    background-color: #eef5f5;
+    transform: translateY(-5px);
+}
+
+.benefit-item img {
+    width: 100%; /* Make image take full width of its container */
+    aspect-ratio: 1 / 1; /* Force a 1:1 aspect ratio for a perfect square */
+    object-fit: cover; /* Cover the square area, cropping if necessary */
+    border: 3px solid var(--light-bg); /* Add a border around the image */
+    border-radius: 12px; /* Slightly rounded corners for the square */
+    margin-bottom: 20px; /* Adjusted margin bottom */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+}
+
+.benefit-item h3 {
+    color: var(--primary-color);
+    /* Títulos de beneficios en amarillo */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.benefit-item p {
+    color: var(--secondary-text);
+    /* Texto gris para el párrafo */
+    font-size: 0.95em;
+}
+
+/* New section for Sustainability */
+.sustainability-section {
+    padding: 80px 0;
+    background-color: #ffff8b83;
+    /* CAMBIO: Fondo amarillo pastel (15%) */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.sustainability-section h2 {
+    color: var(--primary-color);
+    /* CAMBIO: Título oscuro para contrastar con el fondo amarillo */
+}
+
+.sustainability-section .benefits-grid {
+    margin-top: 40px;
+}
+
+.sustainability-section .benefit-item h3 {
+    color: var(--mood-blue);
+    /* CAMBIO: Títulos de beneficios en azul para contraste con amarillo */
+}
+
+.sustainability-section .benefit-item p {
+    color: var(--secondary-text);
+    /* Texto gris para el párrafo */
+}
+
+
+/* Newsletter Signup (Novedades) */
+.newsletter-signup {
+    background-color: #f5a3cc98;
+    /* CAMBIO: Fondo rosa pastel (para variar y distribuir) */
+    padding: 70px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-signup h2 {
+    color: var(--white);
+    /* CAMBIO: Título blanco para contraste con fondo rosa */
+}
+
+.newsletter-signup h2::after {
+    background-color: var(--white);
+    /* CAMBIO: Línea blanca para contraste */
+}
+
+.newsletter-signup p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: var(--white);
+    /* CAMBIO: Texto blanco para contraste con fondo rosa */
+}
+
+.newsletter-signup form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-signup input[type="email"] {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    width: 350px;
+    max-width: 80%;
+    box-shadow: inset 0 2px 5px var(--shadow-light);
+}
+
+.newsletter-signup .btn {
+    background: var(--primary-color);
+    /* Botón oscuro para contraste */
+    color: var(--white);
+    border-radius: 30px;
+}
+
+.newsletter-signup .btn:hover {
+    background: #444;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    /* Fondo oscuro para el footer */
+    color: var(--white);
+    /* Texto blanco para el footer */
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative;
+    z-index: 1;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 12px;
+    transition: color 0.3s ease;
+    font-size: 1.1em;
+}
+
+.social-links a:hover {
+    color: var(--mood-yellow);
+    /* Amarillo pastel para hover en redes sociales */
+}
+
+/* Estilos para el Modal de Alerta Personalizado */
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s ease;
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cuando el modal está activo (visible) */
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.modal-content {
+    background-color: var(--white);
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    transform: translateY(0);
+    animation: modalPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animación de entrada para el modal */
+@keyframes modalPopIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.close-button {
+    color: var(--primary-color);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--mood-pink);
+    text-decoration: none;
+}
+
+.modal-icon {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.modal-icon.success::before {
+    content: "🎉";
+    color: var(--mood-blue);
+}
+
+.modal-icon.error::before {
+    content: "⚠️";
+    color: var(--mood-yellow);
+}
+
+.modal-icon.info::before {
+    content: "👋";
+    color: var(--mood-pink);
+}
+
+/* --- NUEVOS ICONOS PARA ALERTAS DEL CARRITO --- */
+.modal-icon.cart-add::before {
+    content: "🛒✨";
+    /* Icono para añadir al carrito (carrito con brillos) */
+    color: var(--mood-blue);
+}
+
+.modal-icon.cart-cancel::before {
+    content: "🗑️";
+    /* Icono para cancelar compra (papelera) */
+    color: #e74c3c;
+}
+
+.modal-icon.cart-empty::before {
+    content: "🚫🛒";
+    /* Icono para carrito vacío (carrito prohibido) */
+    color: var(--secondary-text);
+}
+
+/* --- FIN NUEVOS ICONOS --- */
+
+
+#alert-title {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+#alert-message {
+    font-size: 1.15em;
+    color: var(--secondary-text);
+    margin-bottom: 30px;
+}
+
+#alert-ok-button {
+    padding: 12px 35px;
+    font-size: 1.1em;
+    background-color: var(--mood-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+}
+
+#alert-ok-button:hover {
+    background-color: #6DBDD6;
+    transform: translateY(-2px);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 992px) {
+    /* Para tabletas y móviles */
+
+    header .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: 15px;
+    }
+
+    .logo img {
+        max-height: 85px;
+        /* Un poco más pequeña en móviles si es necesario */
+    }
+
+    .hamburger-menu {
+        display: block;
+        order: 3;
+    }
+
+    .header-actions {
+        order: 2;
+        margin-left: auto;
+        margin-right: 15px;
+        gap: 8px;
+    }
+
+    nav {
+        width: 65%;
+        right: 0;
+        left: auto;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 499;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        position: fixed;
+        top: 0;
+    }
+
+    nav.active {
+        transform: translateX(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 1.8em;
+        color: var(--mood-blue);
+    }
+
+    nav ul li a:hover {
+        color: var(--mood-pink);
+    }
+
+    nav ul li a::after {
+        background-color: var(--mood-pink);
+    }
+
+    /* Botón de Google: solo logo en pantallas pequeñas */
+    .btn-google {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .btn-google .login-text {
+        display: none;
+    }
+
+    .btn-google img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .cart-icon {
+        font-size: 1.3em;
+    }
+
+    .btn-cancel {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1em;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .product-grid,
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* Adaptación a 2 columnas */
+    }
+
+    .newsletter-signup input[type="email"] {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .newsletter-signup .btn {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .modal-content {
+        max-width: 350px;
+    }
+
+    #alert-title {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .logo a {
+        font-size: 2em;
+    }
+
+    nav ul li a {
+        font-size: 1.5em;
+        /* Más pequeño para móviles muy pequeños */
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    .product-card {
+        padding: 20px;
+    }
+
+    .product-card h3 {
+        font-size: 1.4em;
+    }
+
+    .product-card .price {
+        font-size: 1.3em;
+    }
+
+    .add-to-cart-btn {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    .benefit-item {
+        padding: 20px;
+    }
+
+    .benefit-item h3 {
+        font-size: 1.3em;
+    }
+
+    .newsletter-signup input[type="email"],
+    .newsletter-signup .btn {
+        width: 95%;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    #alert-title {
+        font-size: 1.5em;
+    }
+
+    #alert-message {
+        font-size: 1em;
+    }
+
+    #alert-ok-button {
+        padding: 8px 25px;
+        font-size: 1em;
+    }
+}
